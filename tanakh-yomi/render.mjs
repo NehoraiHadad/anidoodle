@@ -75,7 +75,7 @@ const graph = [
   `[1:a]aresample=48000,loudnorm=I=-16:TP=-1.5:LRA=9,asplit=2[voice][key]`,
   ...(music ? [`[2:a]aresample=48000,volume=${film0.musicGain ?? 0.55},afade=t=out:st=${(N / fps - 2.5).toFixed(2)}:d=2.5[m0]`, `[m0][key]sidechaincompress=threshold=0.03:ratio=6:attack=40:release=450:makeup=1[bed]`] : []),
   ...fx,
-  `[voice]${music ? "[bed]" : ""}${film0.sfx.map((_, i) => `[x${i}]`).join("")}amix=inputs=${1 + (music ? 1 : 0) + film0.sfx.length}:normalize=0:duration=first,atrim=0:${dur},alimiter=limit=0.89[mix]`,
+  `[voice]${music ? "[bed]" : ""}${film0.sfx.map((_, i) => `[x${i}]`).join("")}amix=inputs=${1 + (music ? 1 : 0) + film0.sfx.length}:normalize=0:duration=longest,apad,atrim=0:${dur},alimiter=limit=0.89[mix]`,
 ].join(";");
 execFileSync("ffmpeg", ["-y", "-loglevel", "error", ...inputs, "-filter_complex", graph, "-map", "0:v", "-map", "[mix]", "-c:v", "libx264", "-preset", "slow", "-crf", "23", "-maxrate", "1000k", "-bufsize", "2000k", "-pix_fmt", "yuv420p", "-profile:v", "high", "-c:a", "aac", "-b:a", "128k", "-movflags", "+faststart", "-t", dur, final]);
 const mb = statSync(final).size / 1e6;

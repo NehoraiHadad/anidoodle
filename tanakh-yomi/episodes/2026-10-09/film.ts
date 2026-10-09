@@ -126,7 +126,7 @@ const drawMap = (out: Ctx, env: Env, t: number) => {
     for (const tr of TRIBES) {
       let poly = cell(tr.id), a = lotP(tr.id) * patDim(tr.id);
       if (tr.id === "simeon") { const m = eio(prog(t, Q.scatter, Q.scatter + 1.4)); if (m > 0) { territory(ctx, "judah", a * m, { poly, edge: 0 }); a *= 1 - m; } }
-      if (tr.id === "dan") { const k = eio(prog(t, Q.slack, Q.slack + 1.2)); poly = scaledPoly(poly, P(tr.site), 1 - 0.45 * k); }
+      if (tr.id === "dan") { const k = eio(prog(t, Q.slack, Q.slack + 1.2)); if (k > 0) territory(ctx, "dan", a * k * 0.45, { poly, l: 48, s: 18, dash: true }); poly = scaledPoly(poly, P(tr.site), 1 - 0.45 * k); } // the land Dan did not hold stays as a dashed ghost
       const east = tr.bank === "E" ? pulse(t, Q.twoHalf + 0.3, 2.4) : 0;
       territory(ctx, tr.id, a, { poly, l: 46 + 18 * east, s: 42 + 20 * east, dash: planDash > 0.5 && t < Q.fin + 1.5 });
     }
