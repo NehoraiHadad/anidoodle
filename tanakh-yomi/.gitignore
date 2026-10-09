@@ -8,3 +8,7 @@ episodes/*/sources/*.steinsaltz.json
 episodes/*/plates/*_v2*.jpg
 episodes/*/plates/*_flare.jpg.bak
 episodes/*/out/
+episodes/*/audio/raw.take*
+episodes/*/audio/raw.before-patch.mp3
+episodes/*/audio/scene_*.mp3
+episodes/*/audio/*_check.mp3

@@ -61,7 +61,10 @@ muted. The film is **not** a lecture: it turns the day's commentary into one exp
 reads. Rules: the Name is "השם" in `say` and "ה׳" on screen (fetch.mjs already swaps it in verses);
 put niqqud on any word a reader could mispronounce or misread (לִכְבּוֹשׁ, הוֹרָשָׁה, הַבְּכוֹרִים vs.
 ביכורים, שְׁכֶם, כָּלֵב) and on every quoted verse; write numbers as words ("פרק ארבעה עשר"); avoid
-words with an unwanted modern sense ("סדר החניה" reads as parking: say "המחנה סביב המשכן").
+words with an unwanted modern sense. **Names of people always get full niqqud** as their owners
+say them (הרב יובל שֶׁרְלוֹ, not שרלו, which the voice reads "Sharlo"); ask the user when unsure. Fix a
+single scene without re-voicing the rest: edit its `say`, `node lib/patch-scene.mjs $E <sceneId>`, then
+`node tts.mjs $E --reuse`. Avoid words with an unwanted modern sense ("סדר החניה" reads as parking: say "המחנה סביב המשכן").
 Voice: ElevenLabs v4 via fal, `George` at stability 0.4 (chosen from a 3-voice test; Brian also
 approved, Daniel rejected). `tts.mjs` speeds the read by 1.08 (pitch kept), puts every scene start on
 the half-second grid, and writes `timing.json`. Then **always** check pronunciation without ears:
