@@ -5,3 +5,5 @@ episodes/*/out/still-*.png
 episodes/*/plates/*.png
 episodes/*/audio/music_*.mp3
 episodes/*/sources/*.steinsaltz.json
+episodes/*/plates/*_v2*.jpg
+episodes/*/plates/*_flare.jpg.bak

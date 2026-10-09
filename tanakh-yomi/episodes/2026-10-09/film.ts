@@ -286,7 +286,7 @@ const draw = (ctx: Ctx, env: Env, frame: number) => {
   const cc = vis(t, Q.lots - 0.1, Q.lots + 1.7, 0.35, 0.5);
   if (cc > 0) { ctx.save(); ctx.globalAlpha = cc; ctx.fillStyle = "rgba(10,8,6,0.9)"; ctx.fillRect(0, 0, W, H); ctx.restore(); const s = 1 + 0.06 * prog(t, Q.lots, Q.lots + 1.8); ctx.save(); ctx.translate(W / 2, 960); ctx.scale(s, s); txt(ctx, "פֶּרֶק י״ד", 0, 60, 190, goldFill(ctx, 0, 190, t) as unknown as string, { w: 900, fam: FONT.verse, alpha: cc, glow: 40 }); ctx.restore(); ctx.save(); ctx.globalAlpha = cc; ctx.strokeStyle = C.gold; ctx.lineWidth = 2; const w = 320 * eio(prog(t, Q.lots, Q.lots + 0.8)); ctx.beginPath(); ctx.moveTo(W / 2 - w, 1090); ctx.lineTo(W / 2 + w, 1090); ctx.moveTo(W / 2 - w, 820); ctx.lineTo(W / 2 + w, 820); ctx.stroke(); ctx.restore(); txt(ctx, "נחלות השבטים", W / 2, 1160, 44, C.cream, { w: 600, alpha: cc * prog(t, Q.lots + 0.4, Q.lots + 1.0) }); }
   const pL = vis(t, Q.lots + 1.3, Q.spread + 0.5, 0.6, 0.8);
-  if (pL > 0) { plate(ctx, env, "lots", prog(t, Q.lots + 1.3, Q.spread + 0.5), { x0: 0.5, y0: 0.45, s0: 1.05, x1: 0.55, y1: 0.5, s1: 1.25 }, pL); motes(ctx, t, 23, 24, 0.45 * pL, { x: 300, y: 700, w: 500, h: 600 }); scrim(ctx, 1000, 1920, 0.85 * pL); }
+  if (pL > 0) { plate(ctx, env, "lots", prog(t, Q.lots + 1.3, Q.spread + 0.5), { x0: 0.5, y0: 0.45, s0: 1.05, x1: 0.45, y1: 0.4, s1: 1.25 }, pL); motes(ctx, t, 23, 24, 0.45 * pL, { x: 300, y: 700, w: 500, h: 600 }); scrim(ctx, 1000, 1920, 0.85 * pL); }
 
   // ===== PATTERN: the camp around the Tabernacle
   const cA = vis(t, Q.camp - 0.3, S("pattern").end - 0.4, 0.5, 0.6);
@@ -365,6 +365,6 @@ const N = Math.round(DUR * FPS);
 const shots: Shot[] = T.scenes.map((s, i) => ({ id: s.id, start: Math.round(s.start * FPS), end: i === T.scenes.length - 1 ? N : Math.round(T.scenes[i + 1].start * FPS), draw: (ctx, local, env) => draw(ctx, env, Math.round(s.start * FPS) + local) }));
 export const film: Film = {
   meta: { title: "התנ״ך היומי · יהושע י״ג–י״ד", W, H, fps: FPS, bpm: 120, durationFrames: N, raster: "cpu" },
-  assets: { images: { joshua: "plates/joshua_flare.jpg", highplaces: "plates/highplaces_flare.jpg", lots: "plates/lots_sun.jpg", caleb: "plates/caleb_flare.jpg" } },
+  assets: { images: { joshua: "plates/joshua_flare.jpg", highplaces: "plates/highplaces_flare.jpg", lots: "plates/lots.jpg", caleb: "plates/caleb.jpg" } },
   shots,
 };
