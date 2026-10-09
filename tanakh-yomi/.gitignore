@@ -1,0 +1,7 @@
+.tmp/
+episodes/*/.tmp/
+episodes/*/audio/*.wav
+episodes/*/out/still-*.png
+episodes/*/plates/*.png
+episodes/*/audio/music_*.mp3
+episodes/*/sources/*.steinsaltz.json

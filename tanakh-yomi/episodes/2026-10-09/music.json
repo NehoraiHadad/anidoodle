@@ -1,0 +1,88 @@
+{
+ "global_positive": [
+  "cinematic documentary score",
+  "ancient Near East colour",
+  "instrumental"
+ ],
+ "global_negative": [
+  "vocals with lyrics",
+  "rap",
+  "EDM drops",
+  "electric guitar",
+  "cheesy",
+  "kitsch"
+ ],
+ "chunks": [
+  {
+   "until": "key",
+   "text": "Mysterious opening of a biblical documentary. Low sustained cello and soft string bed, a solo ney flute phrase, a soft frame drum heartbeat. Spacious, curious, a question hanging in the air, gently building tension.",
+   "styles": [
+    "sparse",
+    "mysterious",
+    "low strings",
+    "ney flute",
+    "frame drum heartbeat"
+   ],
+   "section": "Opening"
+  },
+  {
+   "until": "inherit",
+   "text": "Sudden drive: taiko and frame drums enter, fast staccato low-string ostinato, sharp brass stabs. Military campaign energy, swift and decisive, short and punchy.",
+   "styles": [
+    "driving percussion",
+    "staccato strings ostinato",
+    "fast",
+    "decisive"
+   ],
+   "section": "Campaign"
+  },
+  {
+   "until": "lots",
+   "text": "Slower and patient: a steady plucked oud and pizzicato pulse, quiet ritual percussion, a dark undertone of unease that grows, smoky and restrained.",
+   "styles": [
+    "patient pulse",
+    "oud",
+    "pizzicato",
+    "uneasy",
+    "restrained"
+   ],
+   "section": "Village by village"
+  },
+  {
+   "until": "breaks",
+   "text": "Warm and wondrous: harp and oud arpeggios, gentle string swells, a sense of order and design revealed, hopeful.",
+   "styles": [
+    "harp arpeggios",
+    "warm strings",
+    "wonder",
+    "order"
+   ],
+   "section": "The map"
+  },
+  {
+   "until": "caleb",
+   "text": "The same theme, fractured and thoughtful, the rhythm hesitates, suspended chords, a lone cello line, steady medium volume",
+   "styles": [
+    "reflective",
+    "suspended chords",
+    "solo cello",
+    "hesitant rhythm"
+   ],
+   "section": "Fractured plan"
+  },
+  {
+   "until": "end",
+   "text": "Loud heroic rise, big frame drums and taiko, full strings and warm horns, wordless choir, triumphant climax, then a warm final major chord",
+   "styles": [
+    "loud",
+    "heroic",
+    "epic climax",
+    "full orchestra",
+    "big drums",
+    "wordless choir"
+   ],
+   "section": "Climb and resolve",
+   "adherence": "low"
+  }
+ ]
+}
