@@ -73,6 +73,17 @@ content; plates carry the feeling. Generate with both GPT Image 2.5 models when 
 (`--model flare --suffix _flare`, `--model sunburst --suffix _sun`), look at them side by side
 (Read the images), pick per plate, and point `film.ts` `assets.images` at the winners.
 
+**Details pass on every plate (mandatory, the group notices).** Image models get period and ritual
+details wrong with confidence. Before a plate goes in, crop and read it at full size against a
+written list for that plate, and regenerate on any miss. Known failures from the pilot: the High
+Priest's breastplate (choshen) painted on his BACK (it sits on the chest, tied to the ephod, onyx
+stones on the shoulders, gold tzitz on the forehead, Exodus 28); a Late Bronze Age city drawn as a
+crusader castle with crenellations and a church tower; elders drawn as hooded monks. So: name the
+period in the prompt (Late Bronze / Iron Age), describe garments by their parts and where they sit,
+list what must NOT appear (crenellations, arches, domes, Roman/medieval armour), and put shared
+requirements in `plates.json` `details`. Also check: who would really be there (Eleazar was High
+Priest by Joshua 14, Aaron had died), what they hold, how many of a counted thing (12 stones).
+
 **`music.json`**: one chunk per act, `until` a scene id, with styles describing that act. Chunk text
 is lyrics in this API, so it carries only a section name. Generate two seeds, then read the arc
 without hearing it: `node lib/loudness.mjs $E/audio/music_*.mp3`. Pick the take that rises into the

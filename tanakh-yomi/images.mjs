@@ -10,7 +10,7 @@ const ep = process.argv[2], model = `gpt-image-2-5-${arg("model", "flare")}-text
 const spec = JSON.parse(readFileSync(join(ep, "plates.json"), "utf8")); mkdirSync(join(ep, "plates"), { recursive: true });
 await Promise.all(Object.entries(spec.plates).filter(([k]) => !only || only.includes(k)).map(async ([name, scene]) => {
   const out = join(ep, "plates", `${name}${suffix}.jpg`); if (existsSync(out) && !process.argv.includes("--force")) return console.log(`${name}: exists`);
-  const r = await kieTask(model, { prompt: `${scene}\n\n${spec.style}`, aspect_ratio: "9:16", resolution: "2K", background: "opaque" });
+  const r = await kieTask(model, { prompt: `${scene}\n\n${spec.style}${spec.details ? "\nAccuracy requirements: " + spec.details.join("; ") + "." : ""}`, aspect_ratio: "9:16", resolution: "2K", background: "opaque" });
   const png = out.replace(/\.jpg$/, ".png"); await download(r.resultUrls[0], png);
   execFileSync("ffmpeg", ["-y", "-loglevel", "error", "-i", png, "-q:v", "2", out]); unlinkSync(png); console.log(`${name}: ${out}`); // 2K JPEG, ~1 MB: small enough to commit
 }));
